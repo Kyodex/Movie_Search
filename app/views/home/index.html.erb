@@ -1,0 +1,21 @@
+
+<div class="container" align="center">
+<h1>Hi to Movie search</h1>
+<br>
+<%= form_for :movie do |f| %>
+
+
+  <div class="field">
+    <%= f.label :Movie_name %><br />
+    <%= f.text_area :content, autofocus: true, required: true %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Search" %>
+  </div>
+  <br>
+<% end %>
+
+
+
+</div>

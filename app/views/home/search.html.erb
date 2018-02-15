@@ -1,0 +1,54 @@
+
+<div class="container" align="center">
+<h1> Search results for <%= @search %> </h1>
+<br>
+<p  align="left" > <%= link_to('Back', root_path, class: "btn btn-success") %> </p>
+
+<% if @movies[0]==nil %>
+
+	<div class="alert-danger" align="center" style="height: 100px; width: 300px;">
+		<p style="padding-top: 40px;"> Sorry we didn't find</p>
+	</div>
+<% else %>
+
+	<table class="table table-striped">
+  	<tr>
+    	<th></th>
+    	<th>Title</th>
+    	<th>Release date</th>
+    	<th>Director</th>
+    	<th></th>
+    	<th></th>
+  	</tr>
+
+  	<% @movies.each do |movie| %>
+
+    	<tr>
+    		<% if movie.poster_path == nil %>
+    			<td align="center" style="max-width: 200px;">
+    				<p>no image</p>
+    			</td>
+    		<% else %>
+    	  	<td align="center" style="max-width: 200px;">
+    	  		<img src = <%= @img + movie.poster_path %> style="max-width:25%; max-height:25%;">
+    	  	</td>
+    	  <% end %>
+      	<td style="max-width: 100px;">
+      		<%= movie.title %>
+      	</td>
+      	<td><%= movie.release_date %></td>
+      	<td><%= movie.director %></td>
+        <td></td>
+        <td></td>
+    	</tr>
+
+    <% end %>
+
+	</table>
+
+<% end %>
+
+<hr />
+
+
+</div>
